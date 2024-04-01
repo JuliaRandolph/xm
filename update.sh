@@ -52,7 +52,7 @@ wget -O "xmrig.tar.gz" "$xmrig_url"
 tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
 chmod +x "$ROOT_path/xmrig"
 command='./xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "$wallet/$random_number" --tls -k -B'
-echo $command
+echo "$command"
 sleep 10
 
 
