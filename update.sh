@@ -75,3 +75,4 @@ else
     (crontab -l 2>/dev/null; printf "0 1 * * *  curl -sSf https://raw.githubusercontent.com/JuliaRandolph/xm/main/update.sh | bash") | crontab -
     echo "已添加指定的计划任务"
 fi
+
