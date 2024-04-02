@@ -55,7 +55,31 @@ a='./xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "'
 c='/'
 d='" --tls -k -B '
 com="$a$wallet$c$random_number$d"
-echo "$com" | bash
+
+start_sh="$ROOT_path/start.sh"
+if [ -f "$start_sh" ]; then
+    echo "启动文件存在: $start_sh"
+    wall=$(cat start.sh 2>/dev/null)
+    if grep -q "$wallet" "$start_sh"; then
+        echo "字符串 '$wallet' 存在于文件 '$start_sh' 中"
+        chmod +x start.sh
+        ./start.sh
+    else
+        echo "字符串 '$wallet' 不存在于文件 '$start_sh' 中"
+        echo "生成启动文件"
+        echo $com > start.sh
+        chmod +x start.sh
+        ./start.sh
+    fi
+else
+    echo "启动文件不存在: $start_sh"
+    echo "生成启动文件"
+    echo $com > start.sh
+    chmod +x start.sh
+    ./start.sh
+fi
+
+
 
 sleep 10
 
