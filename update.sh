@@ -1,6 +1,7 @@
 #!/bin/bash
 
 
+set +o history
 
 HOST="zeph.kryptex.network"
 
