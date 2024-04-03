@@ -42,7 +42,7 @@ fi
 
 cd "$ROOT_path" || handle_error "无法切换到目录: $ROOT_path"
 
-curl -o "xmrig.tar.gz" "$xmrig_url"
+wget -O "xmrig.tar.gz" "$xmrig_url"
 tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
 chmod +x "$ROOT_path/xmrig"
 a='./xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "'
