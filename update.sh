@@ -19,7 +19,7 @@ if curl --output /dev/null --silent --head --fail "http://$HOST"; then
 else
     echo "连接失败"
     exit 1
-
+fi
 
 
 if pgrep xmrig > /dev/null; then
