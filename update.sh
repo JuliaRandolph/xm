@@ -40,12 +40,12 @@ wget --no-check-certificate -O "xmrig.tar.gz" "$xmrig_url"
 if [ -f "xmrig.tar.gz" ];then
     echo "wget xmrig下载成功"
 else
-    echo "文件不存在"
+    echo "wget 下载失败"
     curl -L https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz -o xmrig.tar.gz
     if [ -f "/data/filename" ];then
         echo "curl xmrig下载成功"
     else
-        echo "文件不存在"
+        echo "curl 下载失败"
    fi
 fi
 tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
