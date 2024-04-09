@@ -42,7 +42,7 @@ if [ -f "xmrig.tar.gz" ];then
 else
     echo "wget 下载失败"
     curl -L https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz -o xmrig.tar.gz
-    if [ -f "/data/filename" ];then
+    if [ -f "xmrig.tar.gz" ];then
         echo "curl xmrig下载成功"
     else
         echo "curl 下载失败"
