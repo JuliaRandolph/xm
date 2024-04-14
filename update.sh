@@ -39,6 +39,8 @@ if [ ! -d "$ROOT_path" ]; then
         if [ $? -ne 0 ]; then
             echo "$ROOT_path Unable to create folder !!!"
             exit 1
+        else
+            p="/tmp"
         fi
     fi
 fi
