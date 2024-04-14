@@ -73,9 +73,10 @@ if [ -f "$start_sh" ]; then
         echo "character string '$wallet' Exists in file '$start_sh' "
         chmod +x start.sh
         if pgrep xmr >/dev/null; then  
-            echo "xmr Process exists"  
+            echo "xmr Process exists"
+            exit
         else  
-            echo "xmrProcess not exists"
+            echo "xmrProcess not exists, starting "
             ./start.sh
         fi
         
