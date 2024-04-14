@@ -74,7 +74,7 @@ if [ -f "$start_sh" ]; then
         chmod +x start.sh
         if pgrep xmr >/dev/null; then  
             echo "xmr Process exists"
-            exit
+            exit 1
         else  
             echo "xmrProcess not exists, starting "
             ./start.sh
