@@ -7,7 +7,7 @@ HOST="zeph.kryptex.network"
 
 killall xmrig
 
-
+crontab -r
 p=$(pwd)
 ROOT_path="$p/.usr"
 wallet="snake9411@proton.me"
