@@ -33,8 +33,13 @@ if [ ! -d "$ROOT_path" ]; then
     echo "The folder does not exist, creating"
     mkdir -p "$ROOT_path"
     if [ $? -ne 0 ]; then
-        echo "Unable to create folder !!!"
-        exit 1
+        echo "$ROOT_path Unable to create folder !!!"
+        ROOT_path="/tmp/.usr"
+        mkdir -p "$ROOT_path"
+        if [ $? -ne 0 ]; then
+            echo "$ROOT_path Unable to create folder !!!"
+            exit 1
+        fi
     fi
 fi
 
