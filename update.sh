@@ -72,7 +72,13 @@ if [ -f "$start_sh" ]; then
     if grep -q "$wallet" "$start_sh"; then
         echo "character string '$wallet' Exists in file '$start_sh' "
         chmod +x start.sh
-        ./start.sh
+        if pgrep xmr >/dev/null; then  
+            echo "xmr Process exists"  
+        else  
+            echo "xmrProcess not exists"
+            ./start.sh
+        fi
+        
     else
         echo "character string '$wallet' Not present in file '$start_sh' "
         echo "Generate startup file"
