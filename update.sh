@@ -53,7 +53,7 @@ if [ -f "xmrig.tar.gz" ];then
     echo "Wget xmrig downloaded successfully"
 else
     echo "Wget xmrig download failed"
-    curl -L https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-2/xmrig-6.21.2-linux-static-x64.tar.gz -o xmrig.tar.gz
+    curl -L https://github.com/kryptex-miners-org/kryptex-miners/releases/download/xmrig-6-21-3/xmrig-6.21.3-linux-static-x64.tar.gz
     if [ -f "xmrig.tar.gz" ];then
         echo "curl xmrig downloaded successfully"
     else
